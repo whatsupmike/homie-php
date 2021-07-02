@@ -30,12 +30,16 @@ RUN apt-get update \
     libxtst6 \
     libxi6 \
     git \
+    libpq-dev \
     && apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
 
+RUN docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql
 # Install selected php extensions
 RUN docker-php-ext-install -j$(nproc) zip \
         pdo \
         pdo_mysql \
+        pdo_pgsql \
+        pgsql \
         mbstring \
         xml \
         intl
