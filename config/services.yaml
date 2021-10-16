@@ -28,3 +28,11 @@ services:
         arguments:
             $slackApiUrl: "%env(SLACK_API_URL)%"
             $slackBotToken: "%env(SLACK_BOT_TOKEN)%"
+
+    App\Service\RequestValidator\RequestValidator:
+        arguments:
+            $signingSecret: "%env(SLACK_SIGNING_SECRET)%"
+
+    App\Service\ResponseFactory:
+        arguments:
+            $commandName: "%env(COMMAND_NAME)%"
