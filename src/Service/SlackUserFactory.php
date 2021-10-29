@@ -14,7 +14,7 @@ class SlackUserFactory
     private const PAYLOAD_USER_ID_KEY = 'id';
     private const PAYLOAD_USERNAME_KEY = 'username';
 
-    private const REQUEST_USER_ID_KEY = 'id';
+    private const REQUEST_USER_ID_KEY = 'user_id';
     private const REQUEST_USERNAME_KEY = 'user_name';
 
     public function __construct(private SlackUserRepository $slackUserRepository, private EntityManagerInterface $entityManager)
