@@ -32,9 +32,6 @@ class Payload
         return $this;
     }
 
-    /**
-     * @return array
-     */
     public function getUser(): SlackUser
     {
         return $this->user;

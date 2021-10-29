@@ -114,9 +114,9 @@ class ResponseFactory
         return new JsonResponse($this->buildSuccessMessage());
     }
 
-    public function buildFailureResponse(): Response
+    public function buildFailureResponse(string $message = 'Failure'): Response
     {
-        return new JsonResponse($this->buildFailureMessage());
+        return new JsonResponse($this->buildFailureMessage($message));
     }
 
     public function buildFormErrorResponse(string $field, string $message): Response
@@ -139,9 +139,9 @@ class ResponseFactory
         return $this->buildSimpleMessage(':white_check_mark: Success');
     }
 
-    public function buildFailureMessage(): array
+    public function buildFailureMessage(string $message): array
     {
-        return $this->buildSimpleMessage('Failure');
+        return $this->buildSimpleMessage(sprintf(':x: %s', $message));
     }
 
     #[ArrayShape(
